@@ -1,0 +1,7 @@
+.pyo*
+.pyc*
+.npz*
+.npy*
+TrainingData/
+DnaSegmentationApp/
+fiji-win64/
