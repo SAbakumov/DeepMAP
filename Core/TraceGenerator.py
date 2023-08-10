@@ -53,14 +53,13 @@ class TraceGenerator():
         self.genome = self.SimTraces.Species
         self.generated_x = np.array([], dtype=np.float32).reshape(0,self.SimTraces.frag_size )
         self.generated_y = np.array([], dtype=np.int64).reshape(0,self.SimTraces.frag_size )
-
+        
         for i in range(0,len(self.StretchingFactor)):
             self.SimTraces.set_stretch(self.StretchingFactor[i])
             self.SimTraces.set_recuts(self.ReCutsInPx[i],self.Gauss)
             self.SimTraces.set_labellingrate(self.LowerBoundEffLabelingRate, self.UpperBoundEffLabelingRate)
             self.SimTraces.set_lags(self.step)
             
-            select_offsets = np.random.choice(self.SimTraces.Lags, int(self.PercentageChangedFrags*len(self.SimTraces.Lags)))
 
             generated_traces = np.zeros([len(self.SimTraces.Lags),self.SimTraces.frag_size ])
             pixelwise_traces = np.zeros([len(self.SimTraces.Lags),self.SimTraces.frag_size ])
@@ -69,8 +68,7 @@ class TraceGenerator():
                 self.SimTraces.set_region(offset,self.FragmentSize,self.step)
                 self.SimTraces.get_EffLabelledProfile()
                 self.SimTraces.get_FPR()
-                if offset in select_offsets:
-                    self.SimTraces.get_WrongRegions()
+                self.SimTraces.get_WrongRegions()
                 self.SimTraces.PixRegs = np.ones(self.SimTraces.frag_size)
 
               

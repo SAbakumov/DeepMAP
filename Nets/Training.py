@@ -27,7 +27,6 @@ class SaveBestModel(tf.keras.callbacks.Callback):
         if metric_value < self.best:
             self.best = metric_value
             self.model.save_weights(os.path.join(self.save_path,'modelBestLoss.hdf5' ))
-            self.model.to_json(os.path.join(self.save_path,'model-Architecture.json' ))
 
 
 class TrainModel(tf.keras.Model):

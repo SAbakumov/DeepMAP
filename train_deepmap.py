@@ -43,11 +43,16 @@ X_Data, Y_Data = Train_data_loader.load_data(args.train_path)
 X_Data_val, Y_Data_val = Val_data_loader.load_data(args.val_path)
 
 
-opt = tf.keras.optimizers.Adam(learning_rate=0.0001)
 
 model =CNN1D((Train_data_loader.params['FragmentSize'],1))
 model.summary()
 
+
+json_config = model.to_json()
+with open(os.path.join(args.net_save_path,'model-Architecture.json' ), "w") as json_file:
+	json_file.write(json_config)
+
+opt = tf.keras.optimizers.Adam(learning_rate=0.0001)
 training_loop = TrainModel(model)
 training_loop.compile(optimizer=opt)
 
