@@ -16,9 +16,10 @@ class DataLoader():
         
         json_file = open(os.path.join(data_train,'sim_params.json'))
         self.params = json.load(json_file)
+        self.data_folder = data_train
 
 
-    def load_data(self,data_folder):
+    def load_data(self):
 
 
         X_Data = np.array([], dtype=np.float32).reshape(0,self.params["FragmentSize"])
@@ -26,11 +27,11 @@ class DataLoader():
 
 
 
-        for folder in os.listdir(data_folder):
-            if os.path.isdir(os.path.join(data_folder,folder)):
-                for file in os.listdir(os.path.join(data_folder,folder)):
+        for folder in os.listdir(self.data_folder):
+            if os.path.isdir(os.path.join(self.data_folder,folder)):
+                for file in os.listdir(os.path.join(self.data_folder,folder)):
                     if '.npz' in file:
-                        npzfile = np.load(os.path.join(data_folder,folder,file ))
+                        npzfile = np.load(os.path.join(self.data_folder,folder,file ))
                         X_Data = np.vstack([X_Data, npzfile['X_data']/100])
                         if 'Random' in file:
                             Y_Data = np.vstack([Y_Data, np.expand_dims(np.zeros(npzfile['X_data'].shape[0]),-1)])
