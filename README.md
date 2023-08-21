@@ -4,6 +4,10 @@
 
 Download and unpack the .git repository. Create a new environment and install the requirements from requirements.txt (pip install -r )
 
+## Interactive environment
+
+The jupyter notebooks can guide you through running the software. First start with simulate_interactive.ipynb -> train_interactive.ipynb -> eval_interactive.ipynb. The instructions for running the software are clearly given in the jupyter notebooks.
+
 
 ## Simulating data
 
