@@ -2,7 +2,9 @@
 
 ## Installation
 
-Download and unpack the .git repository. Create a new environment and install the requirements from requirements.txt (pip install -r )
+Download and unpack the .git repository. Create a new environment and:
+1) First install numpy: pip install numpy==1.20.3
+2) Install the requirements from requirements.txt (pip install -r )
 
 ## Interactive environment
 
