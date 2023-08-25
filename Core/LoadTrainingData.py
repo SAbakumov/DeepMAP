@@ -166,7 +166,7 @@ class Evaluation():
             if len(np.where(self.results[ind_row,:]==1)[0])>1:
                 self.results[ind_row,:] = 0
 
-        trace_matches = dict(zip([x[0] for x  in self.genomes],[self.results[:,x] for x in range(0,self.results.shape[1])]))
+        trace_matches = dict(zip([x for x  in self.genomes],[self.results[:,x] for x in range(0,self.results.shape[1])]))
         return trace_matches
         
     def get_abundance(self):
@@ -202,8 +202,8 @@ class Evaluation():
 
             for genome in self.genomes:
                 unassigned_traces =np.round(100* np.sum(~self.results.any(1))/self.outputs.shape[0])
-                tp_matches = np.round(100*np.sum(trace_matches[genome[0]])/self.outputs.shape[0])
-                fp_matches = np.round(100*np.sum([np.sum(trace_matches[key]) for key in trace_matches.keys() if key!=genome[0]])/self.results.shape[0])
+                tp_matches = np.round(100*np.sum(trace_matches[genome])/self.outputs.shape[0])
+                fp_matches = np.round(100*np.sum([np.sum(trace_matches[key]) for key in trace_matches.keys() if key!=genome])/self.results.shape[0])
 
 
                 if fp_matches==fp_val*100 and tp_matches> self.match_statistics[genome][0]:
