@@ -35,24 +35,7 @@ def GenTraces(TraceGen, genome, transform, Params):
 
 def CallTraceGeneration(Params):
 
-    # json_file = open(args.sim_params)
 
-    # Params = json.load(json_file)
-
-    
-    # Params['Genomes'] = args.genome_path
-    # Params['Save_path']  = args.save_path
-    # Params['ConcatToCsv']  = args.csv
-
-    # if Params['Random']:
-
-        # SIMTRC    = SIMTraces.TSIMTraces('Random',Params["StretchingFactor"],0.34,0,Params["Enzyme"],Params["PixelSize"],Params['PixelShift'] ,Params["FPR"],Params["FPR2"],Params["FragmentSize"],
-        #             Params["Min#ShuffledFrags"],Params["Max#ShuffledFrags"],Params["MinLengthShuffledFrags"],Params["MaxLengthShuffledFrags"],-1)
-        # Gauss      = Misc.GetGauss1d(Params["FragmentSize"] , Misc.FWHMtoSigma(Misc.GetFWHM(Params["Wavelength"],Params["NA"])),Params["PixelSize"] )
-        # ReCutsInPx  = SIMTRC.GetGenome(Params,'Random' )
-        # TraceGen   = TraceGenerator.TraceGenerator(SIMTRC, ReCutsInPx,Gauss,[],Params)
-        # for t in range(Params["NumTransformations"]):
-        #     GenTraces(TraceGen, 'Random', t, Params)    
 
     total_random_lags = 0
 

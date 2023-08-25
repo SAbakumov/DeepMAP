@@ -1,2 +1,2 @@
-python generate_trainingdata.py sim_params.json D:\Sergey\FluorocodeMain\CNN_matching\RefGenomes\staphaureus D:\Sergey\FluorocodeMain\CNN_matching\Data\Simulated\StaphAureusSIM
-python train_deepmap.py D:\Sergey\FluorocodeMain\DeepMAP\Data\simulated D:\Sergey\FluorocodeMain\DeepMAP\Data\simulated D:\Sergey\FluorocodeMain\DeepMAP\Models\test_train
+python generate_trainingdata.py sim_params.json RefGenomes Data\simulated
+python train_deepmap.py Data\simulated  Data\simulated Models\EColiTest\EColi

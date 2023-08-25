@@ -176,10 +176,10 @@ class Evaluation():
         for genome in self.genomes:
             
             unassigned_traces = np.sum(~self.results.any(1))/self.outputs.shape[0]
-            tp_matches = np.sum(trace_matches[genome[0]])/self.outputs.shape[0]
-            fp_matches = np.sum([np.sum(trace_matches[key]) for key in trace_matches.keys() if key!=genome[0]])/self.results.shape[0]
+            tp_matches = np.sum(trace_matches[genome])/self.outputs.shape[0]
+            fp_matches = np.sum([np.sum(trace_matches[key]) for key in trace_matches.keys() if key!=genome])/self.results.shape[0]
 
-            self.abundances[genome[0]] = [tp_matches, fp_matches,unassigned_traces, genome[1]]
+            self.abundances[genome] = [tp_matches, fp_matches,unassigned_traces, genome]
 
         total_matched = np.sum([self.abundances[gen][0]  for gen in self.abundances.keys()])
         for genome in self.abundances.keys():

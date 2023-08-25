@@ -29,19 +29,19 @@ if gpus:
 	except RuntimeError as e:
 		print(e)
 
-# parser = argparse.ArgumentParser(description='Training of deep neural nets for species recognition using optical mapping data')
-# parser.add_argument('train_path', metavar='Training data path', type=str,
-#                     help='Absolute path to training data. Must contain sim_params.json from generation')
-# parser.add_argument('val_path',  metavar='Validation data path', type=str,
-#                     help='Absolute path to validation data. Must contain sim_params.json from generation')
-# parser.add_argument('net_save_path',  metavar='CNN save path', type=str,
-#                     help='Path to save CNN weights and architecture')
+parser = argparse.ArgumentParser(description='Training of deep neural nets for species recognition using optical mapping data')
+parser.add_argument('train_path', metavar='Training data path', type=str,
+                    help='Absolute path to training data. Must contain sim_params.json from generation')
+parser.add_argument('val_path',  metavar='Validation data path', type=str,
+                    help='Absolute path to validation data. Must contain sim_params.json from generation')
+parser.add_argument('net_save_path',  metavar='CNN save path', type=str,
+                    help='Path to save CNN weights and architecture')
 
-# args = parser.parse_args()
+args = parser.parse_args()
 
-training_data   = r'Data\simulated\Training'
-validation_data = r'Data\simulated\Val'
-save_path = r'Models/test_train'
+training_data   = args.train_path
+validation_data = args.val_path
+save_path = args.net_save_path
 
 Train_data_loader = DataLoader(validation_data)
 Val_data_loader = DataLoader(validation_data)
