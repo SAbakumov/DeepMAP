@@ -80,26 +80,4 @@ Note: training saves the weights corresponding to the best validation loss and r
 
 ## Evalutation
 
-Once the network(s) are trained, it can be applied to real data. Currently, the script accepts .hdf5 from proprietary software and .csv files. In case of the CSV file, the rows of the CSV must correspond to measured traces. To call the set of networks on the data, simply store the networks in a separate folder with the folder names corresponding to the genomes. Each of the folders must contain the modelBestLoss.hdf5 and model-Architecture.json, which are normally stored during training.
-
-To call the evaluation and get the corresponding output scores, simply call the eval_deepmap.py with appropriate arguments:
-
-````
-usage: eval_deepmap.py [-h] Data path Model path Output path
-
-Evaluation of a CNN set on experimental/simulated data. Outputs a CSV file with rows: scores from the CNN, columns: corresponding genomes
-
-positional arguments:
-  Data path    Absolute path to experimental/simulated data. Can be either in hdf5 or .csv format. The rows in CSV data must correspond to traces.
-  Model path   Path to the folder containing all models. Folder must contain sub-folders for each of the models. Within these subfolders, a file model-
-               Architecture.json and modelBestLoss.hdf5 must be present.
-  Output path  Absolute path for the output file
-
-optional arguments:
-  -h, --help   show this help message and exit
-````
-
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+Once the network(s) are trained, it can be applied to real data. Currently, the script accepts .hdf5 from proprietary software and .csv files. The evaluation can be performed in the eval_interactive.ipynb, with worked out examples from the paper.
