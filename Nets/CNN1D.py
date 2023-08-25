@@ -8,7 +8,8 @@ import tensorflow as tf
 def  CNN1D(input_shape):
     input = tf.keras.layers.Input(shape = input_shape)
 
-    x = tf.keras.layers.Conv1D(32,3,padding='same',activation='elu')(input)
+    x = tf.math.divide(input, 100)
+    x = tf.keras.layers.Conv1D(32,3,padding='same',activation='elu')(x)
     x = tf.keras.layers.BatchNormalization()(x)
     x = tf.keras.layers.Conv1D(32,3,padding='same',activation='elu')(x)
     x = tf.keras.layers.BatchNormalization()(x)

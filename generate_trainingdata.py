@@ -5,14 +5,16 @@ Created on Sun Sep 27 19:59:10 2020
 
 @author: Sergey
 """
+import sys
+sys.path.insert(1, 'Core')
 
 
-import Core.Misc as Misc
-import Core.SIMTraces as SIMTraces
+import Misc as Misc
+import SIMTraces as SIMTraces
 import os,json
 
 
-import Core.TraceGenerator as TraceGenerator
+import TraceGenerator as TraceGenerator
 import argparse
 
 
@@ -60,7 +62,7 @@ def CallTraceGeneration(Params):
                     Params["Min#ShuffledFrags"],Params["Max#ShuffledFrags"],Params["MinLengthShuffledFrags"],Params["MaxLengthShuffledFrags"],gen_id)
         SIMTRC.set_db_path(os.path.join(Params["Genomes"], genome))
         Gauss      = Misc.GetGauss1d(Params["FragmentSize"] , Misc.FWHMtoSigma(Misc.GetFWHM(Params["Wavelength"],Params["NA"])),Params["PixelSize"] )
-        ReCutsInPx  = SIMTRC.GetGenome(Params,genome)
+        ReCutsInPx  = SIMTRC.GetGenome(Params["StretchingFactor"],genome)
 
 
         TraceGen   = TraceGenerator.TraceGenerator(SIMTRC, ReCutsInPx,Gauss,[],Params)
@@ -75,7 +77,7 @@ def CallTraceGeneration(Params):
     SIMTRC    = SIMTraces.TSIMTraces('Random',Params["StretchingFactor"],0.34,0,Params["Enzyme"],Params["PixelSize"],Params['PixelShift'] ,Params["FPR"],Params["FPR2"],Params["FragmentSize"],
                 Params["Min#ShuffledFrags"],Params["Max#ShuffledFrags"],Params["MinLengthShuffledFrags"],Params["MaxLengthShuffledFrags"],-1)
     Gauss      = Misc.GetGauss1d(Params["FragmentSize"] , Misc.FWHMtoSigma(Misc.GetFWHM(Params["Wavelength"],Params["NA"])),Params["PixelSize"] )
-    ReCutsInPx  = SIMTRC.GetGenome(Params,'Random' )
+    ReCutsInPx  = SIMTRC.GetGenome(Params["StretchingFactor"],'Random' )
     TraceGen   = TraceGenerator.TraceGenerator(SIMTRC, ReCutsInPx,Gauss,[],Params)
     Params["RandomLength"] = total_random_lags
 

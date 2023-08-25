@@ -4,11 +4,12 @@ Created on Sun Sep 27 19:55:53 2020
 
 @author: Sergey
 """
-
+import sys,os
+sys.path.insert(1, os.path.join(os.path.dirname(__file__)))
 
 from Bio import Restriction
-import Core.SIMTraces as SIMTraces
-import numpy as np, os
+import SIMTraces as SIMTraces
+import numpy as np
 
 import json
 import csv

@@ -5,3 +5,5 @@
 TrainingData/
 DnaSegmentationApp/
 fiji-win64/
+.vscode
+_pycache_

@@ -9,8 +9,10 @@ import os,csv
 sys.path.insert(1, os.path.join(os.path.dirname(__file__)))
 
 from Bio import SeqIO
-import Bio
-import Core.Misc as msc
+import Bio 
+import Misc as msc
+
+# import Core.Misc as msc
 import random
 
 class TSIMTraces:
@@ -281,14 +283,14 @@ class TSIMTraces:
 
 
 
-      def GetGenome(self,Params,genome):
+      def GetGenome(self,stretching_factor,genome):
         # ReCuts = []
         
         if not 'Random' in genome and ".csv" not in genome:
             
           ReCuts     = self.GetTraceRestrictions()
           ReCutsInPx = []
-          for strtch in Params["StretchingFactor"]:
+          for strtch in stretching_factor:
               ReCutsInPx.append(self.GetDyeLocationsInPixel(ReCuts,strtch))
               
 

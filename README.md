@@ -8,7 +8,7 @@ Download and unpack the .git repository. Create a new environment and:
 
 ## Interactive environment
 
-The jupyter notebooks can guide you through running the software. First start with simulate_interactive.ipynb -> train_interactive.ipynb -> eval_interactive.ipynb. The instructions for running the software are clearly given in the jupyter notebooks.
+The jupyter notebooks can guide you through running the software. First start with simulate_interactive.ipynb -> train_interactive.ipynb -> eval_interactive.ipynb. The instructions for running the software are clearly given in the jupyter notebooks. Graphs in the paper can be reproduced in eval_interactive.ipynb
 
 
 ## Simulating data
