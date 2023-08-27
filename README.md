@@ -84,4 +84,4 @@ Once the network(s) are trained, it can be applied to real data. Currently, the 
 
 ## Running the x-corr
 
-To run the x-corr, go to Xcorr/xcorr.py and modify the file input path 
+To run the x-corr, go to Xcorr/xcorr.py and modify the file input path, the reference genome path, and the output path. The output scores are saved as xcorr_results.csv, with rows being the traces and column being the genomes. 
