@@ -81,3 +81,7 @@ Note: training saves the weights corresponding to the best validation loss and r
 ## Evalutation
 
 Once the network(s) are trained, it can be applied to real data. Currently, the script accepts .hdf5 from proprietary software and .csv files. The evaluation can be performed in the eval_interactive.ipynb, with worked out examples from the paper.
+
+## Running the x-corr
+
+To run the x-corr, go to Xcorr/xcorr.py and modify the file input path 
