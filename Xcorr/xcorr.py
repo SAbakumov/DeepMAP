@@ -1,5 +1,4 @@
-import numpy as np  , os, sys,csv 
-
+import numpy as np  , os, sys,csv , tqdm
 sys.path.insert(1, 'Core')
 from SIMTraces import TSIMTraces 
 from LoadTrainingData import ExperimentalData
@@ -44,6 +43,7 @@ class XCorrAlignment(TSIMTraces , ExperimentalData):
         for gen_id , genome in enumerate(self.reference_genomes.keys()):
             reference = self.reference_genomes[genome]
             for id, trace in enumerate(self.x_data):
+                print(id)
                 scores_per_stretch = []
                 max_scores_per_stretch = []
                 for ref_strtch in reference: 
@@ -88,8 +88,8 @@ class XCorrAlignment(TSIMTraces , ExperimentalData):
 
 if __name__ == '__main__': 
     db_folder = 'Data/ref_genomes_xcorr'
-    tested_traces = 'Data/measured/EColi/segmentation-results.hdf5'
-    save_folder = 'Data/measured/EColi/xcorr_results.csv'
+    tested_traces = 'Data/measured/MixVibrioEColiSalmonella/segmentation-results.hdf5'
+    save_folder = 'Data/measured/MixVibrioEColiSalmonella/xcorr_results.csv'
     stretch_factor = np.arange(1.68, 1.77, 0.01)
     pixel_size = 78.6  
     wavelength = 590 

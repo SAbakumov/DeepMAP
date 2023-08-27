@@ -4,9 +4,11 @@ Created on Tue Oct 20 20:55:37 2020
 
 @author: Sergey
 """
+import sys , os
+sys.path.insert(1, 'Core')
 
-from Nets.Training import TrainModel
-import os,json, h5py , csv, copy , tqdm
+# from Nets.Training import TrainModel
+import json, h5py , csv, copy , tqdm
 import numpy as np, tensorflow as tf, pandas as pd 
 import matplotlib.pyplot as plt 
 from Bio import SeqIO
@@ -186,34 +188,35 @@ class Evaluation():
             self.abundances[genome][0] =self.abundances[genome][0]/total_matched
 
 
-    def eval_statistics(self,fp_val):
+    def eval_statistics(self,fp_val,tp_gens):
 
 
-        self.match_statistics = {}
+        self.match_statistics = np.zeros(5)
         self.fp_val = fp_val
-        for genome in self.genomes:
-            self.match_statistics[genome] =[0, 0,1, genome,0 ]
+        # for genome in self.genomes:
+        #     self.match_statistics[genome] =[0, 0,1, genome,0 ]
 
         # ths = [1-0.0005]
 
         ths = 1-np.logspace(-4,0,base=10,num=500)
         for t in ths:
             trace_matches = self.threshold(t)
+            unassigned_traces =np.round(100* np.sum(~self.results.any(1))/self.outputs.shape[0])
+            tp_matches = 0
+            for genome in tp_gens:
+                tp_matches+= np.round(100*np.sum(trace_matches[genome])/self.outputs.shape[0])
+                fp_matches = np.round(100*np.sum([np.sum(trace_matches[key]) for key in trace_matches.keys() if key not in tp_gens])/self.results.shape[0])
 
-            for genome in self.genomes:
-                unassigned_traces =np.round(100* np.sum(~self.results.any(1))/self.outputs.shape[0])
-                tp_matches = np.round(100*np.sum(trace_matches[genome])/self.outputs.shape[0])
-                fp_matches = np.round(100*np.sum([np.sum(trace_matches[key]) for key in trace_matches.keys() if key!=genome])/self.results.shape[0])
 
+            if fp_matches==fp_val*100 and tp_matches> self.match_statistics[0]:
 
-                if fp_matches==fp_val*100 and tp_matches> self.match_statistics[genome][0]:
-
-                    self.match_statistics[genome] = [tp_matches, fp_matches,unassigned_traces, 0, t ]
+                self.match_statistics = [tp_matches, fp_matches,unassigned_traces, 0, t ]
                 
 
 
     def get_statistics(self,tp_genome):
-        [tp_matches, fp_matches,unassigned_traces, genlen, ths ]  = self.match_statistics[tp_genome]
+
+        [tp_matches, fp_matches,unassigned_traces, genlen, ths ]  = self.match_statistics
         self.ths= ths
 
         labels = [  'Ground truth','False positives','Unassigned']
