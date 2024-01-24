@@ -125,7 +125,7 @@ class TSIMTraces:
       def GetEffLabelingRate(self,Traces,LabelingEfficiency):
         EffLabeledTraces = []
         for trc in Traces:
-            EffLabeledTraces.append(np.random.choice(trc,np.int(LabelingEfficiency*len(trc)),replace=False))
+            EffLabeledTraces.append(np.random.choice(trc,np.int64(LabelingEfficiency*len(trc)),replace=False))
 
         return EffLabeledTraces
     
