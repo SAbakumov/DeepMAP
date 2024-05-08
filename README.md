@@ -34,8 +34,8 @@ To train a CNN for a desired genome, the training and validation datasets have t
     "MinLengthShuffledFrags": 35,       -> Minimal length of shuffeled regions
     "MaxLengthShuffledFrags": 55,       -> Maximal length of shuffeled regions
     "Random" : true,                    -> Wether to generate a random reference as background for the training. 
-    "FPR": 0.2,                         -> False positive rate /kb
-    "FPR2": 0.02,                       -> Double false positive rate
+    "FPR": 0.7,                         -> False positive rate /kb
+    "FPR2": 0.2,                       -> Double false positive rate
     "Random-min": 1.2,                  -> Minimal number of dyes/kb for random genome
     "Random-max": 6.8                   -> Maximal number of dyes/kb for random genome
    }    
