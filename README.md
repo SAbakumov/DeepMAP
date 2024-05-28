@@ -22,15 +22,15 @@ To train a CNN for a desired genome, the training and validation datasets have t
     "PixelSize" : 78.6,           -> Calibrated pixel size of the instrument
     "Enzyme" : "TaqI",            -> Restriction/Methyltransferase enzyme used for labelling.   
     "NumTransformations"  : 1,    -> Number of simulations. This is the total number of times that a single genome is sampled.
-    "StretchingFactor" :[1.72],   -> Stretch factor for the simulations. Default is 1.72
+    "StretchingFactor" :[1.75],   -> Stretch factor for the simulations. Default is 1.72
     "LowerBoundEffLabelingRate" : 0.75, -> Lower bound labelling rate. Labelling rate is uniformly distributed between lower and upper bound 
     "UpperBoundEffLabelingRate" : 0.9,  -> Upper bound labelling rate. 
     "step" :3,                          -> Sampling step across genome (stride) in number of pixels
-    "PixelShift":0.2,                   -> Random shift in dye position (+- PixelShift)
+    "PixelShift":0.5,                   -> Random shift in dye position (+- PixelShift)
     "NoiseAmp": [0.2],                  -> Relative SNR
     "LocalNormWindow":10000,            -> Local normalization window in kb. Set to 0 in order to disable. See http://bigwww.epfl.ch/sage/soft/localnormalization/#:~:text=The%20local%20normalization%20tends%20to,uneven%20illumination%20or%20shading%20artifacts.http://bigwww.epfl.ch/sage/soft/localnormalization/#:~:text=The%20local%20normalization%20tends%20to,uneven%20illumination%20or%20shading%20artifacts. 
     "Min#ShuffledFrags":0,              -> Minimal number of shuffeled regions within the simulated trace
-    "Max#ShuffledFrags":3,              -> Maximal number of shuffeled regions within the simulated trace
+    "Max#ShuffledFrags":4,              -> Maximal number of shuffeled regions within the simulated trace
     "MinLengthShuffledFrags": 35,       -> Minimal length of shuffeled regions
     "MaxLengthShuffledFrags": 55,       -> Maximal length of shuffeled regions
     "Random" : true,                    -> Wether to generate a random reference as background for the training. 
