@@ -13,7 +13,6 @@
     "LocalNormWindow":10000,
     "Min#ShuffledFrags":0,
     "Max#ShuffledFrags":4,
-    "PercentageChangedFrags": 0,
     "MinLengthShuffledFrags": 35,
     "MaxLengthShuffledFrags": 55,
     "Random" : true,
